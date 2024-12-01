@@ -1,23 +1,37 @@
+import MusanovaKit
 import MusicKit
 import SwiftUI
 
 /// The main content view displaying music milestones for a specific year
 struct ContentView: View {
   @StateObject private var viewModel = MilestonesViewModel()
+  private let scraper = AppleMusicScraper(apiKey: Configuration.firecrawlApiKey)
 
   var body: some View {
     NavigationStack {
-      Group {
-        if viewModel.milestones.isEmpty {
-          ProgressView()
-        } else {
-          MilestoneListView(milestones: viewModel.milestones)
+      ScrollView {
+        ForEach(viewModel.milestones) { milestone in
+          VStack {
+            MilestoneView(milestone: milestone)
+
+            MilestoneTopAlbumsView(topAlbums: milestone.topAlbums)
+
+            MilestoneTopArtistsView(topArtists: milestone.topArtists)
+          }
+          .padding(.bottom)
         }
+        .padding()
       }
       .navigationTitle("Milestones for 2024")
     }
     .task {
-      await viewModel.fetchMilestones(forYear: 2024)
+      do {
+        let creds = try await scraper.getCreds(
+          url: "https://music.apple.com/us/playlist/a-list-pop/pl.5ee8333dbe944d9f9151e97d92d1ead9")
+        await viewModel.fetchMilestones(forYear: 2024, token: creds.token)
+      } catch {
+        viewModel.error = error
+      }
     }
     .alert("Error", isPresented: .constant(viewModel.error != nil)) {
       Button("OK") {}
@@ -27,43 +41,6 @@ struct ContentView: View {
   }
 }
 
-/// A view that displays a list of music milestones
-struct MilestoneListView: View {
-  let milestones: MusicSummaryMilestones
-
-  var body: some View {
-    ScrollView {
-      LazyVStack(spacing: 20) {
-        ForEach(milestones) { milestone in
-          MilestoneSection(milestone: milestone)
-        }
-      }
-      .padding()
-    }
-  }
-}
-
-/// A section displaying a single milestone with its associated top items
-struct MilestoneSection: View {
-  let milestone: MusicSummaryMilestone
-
-  var body: some View {
-    VStack(alignment: .leading, spacing: 16) {
-      MilestoneHeaderView(milestone: milestone)
-
-      if !milestone.topAlbums.isEmpty {
-        MilestoneTopAlbumsView(topAlbums: milestone.topAlbums)
-      }
-
-      if !milestone.topArtists.isEmpty {
-        MilestoneTopArtistsView(topArtists: milestone.topArtists)
-      }
-
-      if !milestone.topSongs.isEmpty {
-        MilestoneTopSongsView(topSongs: milestone.topSongs)
-      }
-    }
-    .accessibilityElement(children: .contain)
-    .accessibilityLabel("Milestone section")
-  }
+#Preview {
+  ContentView()
 }

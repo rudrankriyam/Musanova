@@ -1,3 +1,4 @@
+import MusanovaKit
 import MusicKit
 import SwiftUI
 
@@ -8,25 +9,24 @@ final class MilestonesViewModel: ObservableObject {
   @Published private(set) var milestones: MusicSummaryMilestones = []
 
   /// Published error state
-  @Published private(set) var error: MilestoneError?
+  @Published var error: Error?
 
   /// Fetches music milestones for the specified year
   /// - Parameter year: The year for which to fetch milestones
-  func fetchMilestones(forYear year: Int) async {
+  func fetchMilestones(forYear year: Int, token: String) async {
     do {
       let status = await MusicAuthorization.request()
       guard status == .authorized else {
         throw MilestoneError.unauthorized
-        return
       }
 
       milestones = try await MSummaries.milestones(
-        forYear: year,
+        forYear: MusicYearID(year),
         musicItemTypes: [.topArtists, .topSongs, .topAlbums],
-        developerToken: Configuration.developerToken
+        developerToken: token
       )
     } catch {
-      self.error = MilestoneError(error)
+      self.error = error
     }
   }
 }
