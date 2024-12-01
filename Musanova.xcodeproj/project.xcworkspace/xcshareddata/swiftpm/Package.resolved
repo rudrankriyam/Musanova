@@ -1,5 +1,15 @@
 {
+  "originHash" : "6e937f4382ff32b6f1475d0222de3a5c97a506f7ac739b7b99484c50d8c0c0ac",
   "pins" : [
+    {
+      "identity" : "agnikit",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/rryam/AgniKit",
+      "state" : {
+        "branch" : "main",
+        "revision" : "7fa1681310def3b16f31ecc21a6684ac6bda6fab"
+      }
+    },
     {
       "identity" : "musadorakit",
       "kind" : "remoteSourceControl",
@@ -28,5 +38,5 @@
       }
     }
   ],
-  "version" : 2
+  "version" : 3
 }
