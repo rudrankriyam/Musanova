@@ -3,26 +3,31 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 70;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		0A4103FE29E0AADE009BFF99 /* MusanovaKit in Frameworks */ = {isa = PBXBuildFile; productRef = 0A4103FD29E0AADE009BFF99 /* MusanovaKit */; };
-		0A61AF4429DC798C007866DA /* MusanovaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A61AF4329DC798C007866DA /* MusanovaApp.swift */; };
-		0A61AF4629DC798C007866DA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A61AF4529DC798C007866DA /* ContentView.swift */; };
-		0A61AF4829DC798D007866DA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0A61AF4729DC798D007866DA /* Assets.xcassets */; };
-		0A61AF4B29DC798D007866DA /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0A61AF4A29DC798D007866DA /* Preview Assets.xcassets */; };
 		0AD249022CFCD1C000051546 /* AgniKit in Frameworks */ = {isa = PBXBuildFile; productRef = 0AD249012CFCD1C000051546 /* AgniKit */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		0A4103FF29E0AB5B009BFF99 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		0A61AF4029DC798C007866DA /* Musanova.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Musanova.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		0A61AF4329DC798C007866DA /* MusanovaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusanovaApp.swift; sourceTree = "<group>"; };
-		0A61AF4529DC798C007866DA /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		0A61AF4729DC798D007866DA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		0A61AF4A29DC798D007866DA /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		0AD249232CFCD35400051546 /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 0A61AF3F29DC798C007866DA /* Musanova */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		0AD2491A2CFCD35400051546 /* Musanova */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (0AD249232CFCD35400051546 /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = Musanova; sourceTree = "<group>"; };
+/* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		0A61AF3D29DC798C007866DA /* Frameworks */ = {
@@ -40,7 +45,7 @@
 		0A61AF3729DC798C007866DA = {
 			isa = PBXGroup;
 			children = (
-				0A61AF4229DC798C007866DA /* Musanova */,
+				0AD2491A2CFCD35400051546 /* Musanova */,
 				0A61AF4129DC798C007866DA /* Products */,
 			);
 			sourceTree = "<group>";
@@ -51,26 +56,6 @@
 				0A61AF4029DC798C007866DA /* Musanova.app */,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		0A61AF4229DC798C007866DA /* Musanova */ = {
-			isa = PBXGroup;
-			children = (
-				0A4103FF29E0AB5B009BFF99 /* Info.plist */,
-				0A61AF4329DC798C007866DA /* MusanovaApp.swift */,
-				0A61AF4529DC798C007866DA /* ContentView.swift */,
-				0A61AF4729DC798D007866DA /* Assets.xcassets */,
-				0A61AF4929DC798D007866DA /* Preview Content */,
-			);
-			path = Musanova;
-			sourceTree = "<group>";
-		};
-		0A61AF4929DC798D007866DA /* Preview Content */ = {
-			isa = PBXGroup;
-			children = (
-				0A61AF4A29DC798D007866DA /* Preview Assets.xcassets */,
-			);
-			path = "Preview Content";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -87,6 +72,9 @@
 			buildRules = (
 			);
 			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				0AD2491A2CFCD35400051546 /* Musanova */,
 			);
 			name = Musanova;
 			packageProductDependencies = (
@@ -105,7 +93,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1420;
-				LastUpgradeCheck = 1420;
+				LastUpgradeCheck = 1620;
 				TargetAttributes = {
 					0A61AF3F29DC798C007866DA = {
 						CreatedOnToolsVersion = 14.2;
@@ -139,8 +127,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0A61AF4B29DC798D007866DA /* Preview Assets.xcassets in Resources */,
-				0A61AF4829DC798D007866DA /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -151,8 +137,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0A61AF4629DC798C007866DA /* ContentView.swift in Sources */,
-				0A61AF4429DC798C007866DA /* MusanovaApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -163,6 +147,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -195,6 +180,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -223,6 +209,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -255,6 +242,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
